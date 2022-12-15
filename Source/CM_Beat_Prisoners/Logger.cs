@@ -1,108 +1,129 @@
-﻿using System;
+﻿using System.Diagnostics;
 using System.Text;
-
 using Verse;
 
-namespace CM_Beat_Prisoners
+namespace CM_Beat_Prisoners;
+
+public static class Logger
 {
-    public static class Logger
+    public static bool MessageEnabled = false;
+    public static bool WarningEnabled = true;
+    public static bool ErrorEnabled = true;
+
+    public static bool MessageInProgress;
+
+    public static StringBuilder messageBuilder = new StringBuilder();
+
+    public static void MessageNoCaller(string message)
     {
-        public static bool MessageEnabled = false;
-        public static bool WarningEnabled = true;
-        public static bool ErrorEnabled = true;
-
-        public static bool MessageInProgress = false;
-
-        public static StringBuilder messageBuilder = new StringBuilder();
-
-        public static void MessageNoCaller(string message)
+        if (!MessageEnabled)
         {
-            if (MessageEnabled)
-            {
-                message = (new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name + " - " + message;
-                Log.Message(message);
-            }
+            return;
         }
 
-        public static void MessageFormat(object caller, string message, params object[] stuff)
+        message = $"{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
+        Log.Message(message);
+    }
+
+    public static void MessageFormat(object caller, string message, params object[] stuff)
+    {
+        if (!MessageEnabled)
         {
-            if (MessageEnabled)
-            {
-                message = caller.GetType().ToString() + "." + (new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name + " - " + message;
-                Log.Message(String.Format(message, stuff));
-            }
+            return;
         }
 
-        public static void MessageFormat(string message, params object[] stuff)
+        message = $"{caller.GetType()}.{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
+        Log.Message(string.Format(message, stuff));
+    }
+
+    public static void MessageFormat(string message, params object[] stuff)
+    {
+        if (!MessageEnabled)
         {
-            if (MessageEnabled)
-            {
-                message = (new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name + " - " + message;
-                Log.Message(String.Format(message, stuff));
-            }
+            return;
         }
 
-        public static void WarningFormat(object caller, string message, params object[] stuff)
+        message = $"{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
+        Log.Message(string.Format(message, stuff));
+    }
+
+    public static void WarningFormat(object caller, string message, params object[] stuff)
+    {
+        if (!WarningEnabled)
         {
-            if (Logger.WarningEnabled)
-            {
-                message = caller.GetType().ToString() + "." + (new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name + " - " + message;
-                Log.Warning(String.Format(message, stuff));
-            }
+            return;
         }
 
-        public static void ErrorFormat(object caller, string message, params object[] stuff)
+        message = $"{caller.GetType()}.{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
+        Log.Warning(string.Format(message, stuff));
+    }
+
+    public static void ErrorFormat(object caller, string message, params object[] stuff)
+    {
+        if (!ErrorEnabled)
         {
-            if (Logger.ErrorEnabled)
-            {
-                message = caller.GetType().ToString() + "." + (new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name + " - " + message;
-                Log.Error(String.Format(message, stuff));
-            }
+            return;
         }
 
-        // Building and displaying message assumes caller will be checking for MessageEnabled, WarningEnabled or ErrorEnabled
-        public static void StartMessage(object caller, string message, params object[] stuff)
+        message = $"{caller.GetType()}.{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
+        Log.Error(string.Format(message, stuff));
+    }
+
+    // Building and displaying message assumes caller will be checking for MessageEnabled, WarningEnabled or ErrorEnabled
+    public static void StartMessage(object caller, string message, params object[] stuff)
+    {
+        if (!MessageEnabled)
         {
-            if (MessageEnabled)
-            {
-                MessageInProgress = true;
-                messageBuilder = new StringBuilder(caller.GetType().ToString() + "." + (new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name + ": ");
-                if (!string.IsNullOrEmpty(message))
-                    AddToMessage(message, stuff);
-            }
+            return;
         }
 
-        public static void AddToMessage(string message, params object[] stuff)
+        MessageInProgress = true;
+        messageBuilder =
+            new StringBuilder($"{caller.GetType()}.{new StackTrace().GetFrame(1).GetMethod().Name}: ");
+        if (!string.IsNullOrEmpty(message))
         {
-            if (MessageInProgress)
-                messageBuilder.AppendLine(string.Format(message, stuff));
+            AddToMessage(message, stuff);
+        }
+    }
+
+    public static void AddToMessage(string message, params object[] stuff)
+    {
+        if (MessageInProgress)
+        {
+            messageBuilder.AppendLine(string.Format(message, stuff));
+        }
+    }
+
+    public static void DisplayMessage()
+    {
+        if (!MessageInProgress)
+        {
+            return;
         }
 
-        public static void DisplayMessage()
+        MessageInProgress = false;
+        Log.Message(messageBuilder.ToString());
+    }
+
+    public static void DisplayWarning()
+    {
+        if (!MessageInProgress)
         {
-            if (MessageInProgress)
-            {
-                MessageInProgress = false;
-                Log.Message(messageBuilder.ToString());
-            }
+            return;
         }
 
-        public static void DisplayWarning()
+        MessageInProgress = false;
+        Log.Warning(messageBuilder.ToString());
+    }
+
+    public static void DisplayError()
+    {
+        if (!MessageInProgress)
         {
-            if (MessageInProgress)
-            {
-                MessageInProgress = false;
-                Log.Warning(messageBuilder.ToString());
-            }
+            return;
         }
 
-        public static void DisplayError()
-        {
-            if (MessageInProgress)
-            {
-                MessageInProgress = false;
-                Log.Error(messageBuilder.ToString());
-            }
-        }
+        MessageInProgress = false;
+        Log.Error(messageBuilder.ToString());
     }
 }

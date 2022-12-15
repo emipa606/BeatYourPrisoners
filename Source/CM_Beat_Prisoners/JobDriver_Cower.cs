@@ -1,39 +1,39 @@
 ﻿using System.Collections.Generic;
-
-using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace CM_Beat_Prisoners
+namespace CM_Beat_Prisoners;
+
+public class JobDriver_Cower : JobDriver
 {
-    public class JobDriver_Cower : JobDriver
+    protected Pawn Attacker => job.targetA.Pawn;
+
+    public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
-        protected Pawn Attacker => job.targetA.Pawn;
+        return true;
+    }
 
-        public override bool TryMakePreToilReservations(bool errorOnFailed)
+    protected override IEnumerable<Toil> MakeNewToils()
+    {
+        var toil = new Toil
         {
-            return true;
-        }
-
-        protected override IEnumerable<Toil> MakeNewToils()
-        {
-            Toil toil = new Toil();
-            toil.defaultCompleteMode = ToilCompleteMode.Delay;
-            toil.defaultDuration = 1200;
-            toil.initAction = delegate
+            defaultCompleteMode = ToilCompleteMode.Delay,
+            defaultDuration = 1200,
+            initAction = delegate { pawn.pather.StopDead(); },
+            tickAction = delegate
             {
-                pawn.pather.StopDead();
-            };
-            toil.tickAction = delegate
-            {
-                if (pawn.IsHashIntervalTick(35))
+                if (!pawn.IsHashIntervalTick(35))
                 {
-                    BeatingInProgress beating = Current.Game.World.GetComponent<BeatingTracker>()?.GetBeatingInProgress(pawn);
-                    if (beating != null && beating.fightingBack)
-                        EndJobWith(JobCondition.InterruptForced);
+                    return;
                 }
-            };
-            yield return toil;
-        }
+
+                var beating = Current.Game.World.GetComponent<BeatingTracker>()?.GetBeatingInProgress(pawn);
+                if (beating is { fightingBack: true })
+                {
+                    EndJobWith(JobCondition.InterruptForced);
+                }
+            }
+        };
+        yield return toil;
     }
 }

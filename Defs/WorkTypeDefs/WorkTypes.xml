@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <WorkTypeDef>
     <defName>CM_Beat_Prisoners_WorkType_Break_Resistance</defName>
     <labelShort>Break</labelShort>
@@ -11,12 +10,11 @@
     <naturalPriority>1099</naturalPriority>
     <requireCapableColonist>true</requireCapableColonist>
     <relevantSkills>
-	  <li>Melee</li>
+      <li>Melee</li>
     </relevantSkills>
     <workTags>
-	  <li>Violent</li>
+      <li>Violent</li>
       <li>AllWork</li>
     </workTags>
   </WorkTypeDef>
-
 </Defs>

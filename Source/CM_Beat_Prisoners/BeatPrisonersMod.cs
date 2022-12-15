@@ -1,21 +1,17 @@
-﻿using UnityEngine;
-using HarmonyLib;
-using RimWorld;
+﻿using HarmonyLib;
 using Verse;
 
-namespace CM_Beat_Prisoners
+namespace CM_Beat_Prisoners;
+
+public class BeatPrisonersMod : Mod
 {
-    public class BeatPrisonersMod : Mod
+    public BeatPrisonersMod(ModContentPack content) : base(content)
     {
-        private static BeatPrisonersMod _instance;
-        public static BeatPrisonersMod Instance => _instance;
+        var harmony = new Harmony("CM_Beat_Prisoners");
+        harmony.PatchAll();
 
-        public BeatPrisonersMod(ModContentPack content) : base(content)
-        {
-            var harmony = new Harmony("CM_Beat_Prisoners");
-            harmony.PatchAll();
-
-            _instance = this;
-        }
+        Instance = this;
     }
+
+    public static BeatPrisonersMod Instance { get; private set; }
 }
