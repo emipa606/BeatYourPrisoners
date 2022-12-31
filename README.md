@@ -56,10 +56,6 @@ A. Join my Discord server (button somewhere below) and request new features ther
 Concept and design: PistFissed
 Coding: Captain Muscles
 
-[hr][/hr]
-Github download link:
-https://github.com/CaptainMuscles/CM_Beat_Prisoners/releases]https://github.com/CaptainMuscles/CM_Beat_Prisoners/releases
-
 ## Mods by Captain Muscles
 
 [hr][/hr]
@@ -99,3 +95,4 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2446986597]![Image](https
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2902220334]Last updated 2022-12-31

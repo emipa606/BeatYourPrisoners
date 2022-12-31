@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -44,7 +45,7 @@ public class JobDriver_Break : JobDriver
         yield return Toils_Misc.ThrowColonistAttackingMote(TargetIndex.A);
         yield return Toils_Combat.FollowAndMeleeAttack(TargetIndex.A, delegate
         {
-            if (Victim == null || !Victim.Spawned || Victim.InMentalState || !Victim.IsPrisonerOfColony ||
+            if (Victim is not { Spawned: true } || Victim.InMentalState || !Victim.IsPrisonerOfColony ||
                 !Victim.guest.PrisonerIsSecure ||
                 Victim.guest.interactionMode != PrisonerInteractionModeDefOf.ReduceResistance)
             {
@@ -56,11 +57,34 @@ public class JobDriver_Break : JobDriver
                 pawn.jobs.curDriver.JumpToToil(beatingComplete);
             }
 
-            if (!pawn.meleeVerbs.TryMeleeAttack(Victim, job.verbToUse) || pawn.CurJob == null ||
-                pawn.jobs.curDriver != this)
+            var damageDef = job.verbToUse?.GetDamageDef();
+            if (damageDef == null || damageDef == DamageDefOf.Cut || damageDef == DamageDefOf.Burn ||
+                damageDef == DamageDefOf.Flame ||
+                damageDef == DamageDefOf.Stab)
             {
-                return;
+                var meleeAttack = pawn.verbTracker.AllVerbs
+                    .OrderByDescending(verb => verb.verbProps?.meleeDamageBaseAmount)
+                    .First();
+                if (!pawn.meleeVerbs.TryMeleeAttack(Victim, meleeAttack) || pawn.CurJob == null ||
+                    pawn.jobs.curDriver != this)
+                {
+                    return;
+                }
             }
+            else
+            {
+                if (!pawn.meleeVerbs.TryMeleeAttack(Victim, job.verbToUse) || pawn.CurJob == null ||
+                    pawn.jobs.curDriver != this)
+                {
+                    return;
+                }
+            }
+
+            //if (!pawn.meleeVerbs.TryMeleeAttack(Victim, job.verbToUse) || pawn.CurJob == null ||
+            //    pawn.jobs.curDriver != this)
+            //{
+            //    return;
+            //}
 
             numMeleeAttacksMade++;
 
