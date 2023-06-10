@@ -1,5 +1,8 @@
 # Changelog for BeatYourPrisoners
 
+1.4.3 - Should now show the right work-label when beating prisoners
+
+
 1.4.2 - Will now replace beating prisoners with a melee weapon with fists if that weapon uses dangerous damage-types like cutting and burning.
 
 

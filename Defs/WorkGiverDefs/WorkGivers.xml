@@ -3,7 +3,7 @@
   <!-- ============= Break ============= -->
   <WorkGiverDef>
     <defName>CM_Beat_Prisoners_WorkGiver_Break_Resistance</defName>
-    <label>execute prisoners</label>
+    <label>breaking prisoners</label>
     <giverClass>CM_Beat_Prisoners.WorkGiver_Warden_Break</giverClass>
     <workType>CM_Beat_Prisoners_WorkType_Break_Resistance</workType>
     <verb>break</verb>
