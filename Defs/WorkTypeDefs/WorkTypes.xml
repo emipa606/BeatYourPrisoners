@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <WorkTypeDef>
-    <defName>CM_Beat_Prisoners_WorkType_Break_Resistance</defName>
+    <defName>CM_Beat_Prisoners_WorkType_Break</defName>
     <labelShort>Break</labelShort>
     <pawnLabel>Breaker</pawnLabel>
     <gerundLabel>breaking</gerundLabel>
-    <description>Break prisoner resistance.</description>
+    <description>Break the resistance of prisoners through violence.</description>
     <verb>Break</verb>
     <naturalPriority>1099</naturalPriority>
     <requireCapableColonist>true</requireCapableColonist>

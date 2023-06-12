@@ -5,7 +5,7 @@ using Verse;
 
 namespace CM_Beat_Prisoners;
 
-public class InteractionWorker_BreakAttempt : InteractionWorker
+public class InteractionWorker_BreakWillAttempt : InteractionWorker
 {
     private const float negotiationFactor = 0.5f;
 
@@ -28,7 +28,7 @@ public class InteractionWorker_BreakAttempt : InteractionWorker
         new Pair<string, float>("Psychopath", 0.5f)
     };
 
-    private static readonly SimpleCurve ResistanceImpactFactorCurve_Pain = new SimpleCurve
+    private static readonly SimpleCurve WillImpactFactorCurve_Pain = new SimpleCurve
     {
         new CurvePoint(0f, 0.1f),
         new CurvePoint(0.5f, 2f),
@@ -51,44 +51,43 @@ public class InteractionWorker_BreakAttempt : InteractionWorker
 
         var currentPainLevel = recipient.health.hediffSet.PainTotal;
         var painInflicted = beating.GetAndResetPainInflicted(currentPainLevel);
-        var painFactor = ResistanceImpactFactorCurve_Pain.Evaluate(painInflicted);
+        var painFactor = WillImpactFactorCurve_Pain.Evaluate(painInflicted);
 
 
-        var resistanceReduction = 1f;
+        var willReduction = 1f;
 
-        Logger.StartMessage(this, "{0} beat {1}, base resistance reduction  = {2}", initiator, recipient,
-            resistanceReduction);
+        Logger.StartMessage(this, "{0} beat {1}, base will reduction  = {2}", initiator, recipient,
+            willReduction);
         Logger.AddToMessage("    pain inflicted: {0}, pain factor: {1}", painInflicted, painFactor);
 
-        resistanceReduction *= painFactor;
+        willReduction *= painFactor;
 
-        resistanceReduction = FactorInInitiatorTraits(initiator, resistanceReduction);
-        resistanceReduction = FactorInRecipientTraits(recipient, resistanceReduction);
+        willReduction = FactorInInitiatorTraits(initiator, willReduction);
+        willReduction = FactorInRecipientTraits(recipient, willReduction);
 
-        Logger.AddToMessage("Final resistance reduction: {0}", resistanceReduction);
+        Logger.AddToMessage("Final will reduction: {0}", willReduction);
         Logger.DisplayMessage();
 
-        resistanceReduction = Mathf.Min(resistanceReduction, recipient.guest.resistance);
+        willReduction = Mathf.Min(willReduction, recipient.guest.will);
 
-        var resistance = recipient.guest.resistance;
-        recipient.guest.resistance = Mathf.Max(0f, recipient.guest.resistance - resistanceReduction);
+        var will = recipient.guest.will;
+        recipient.guest.will = Mathf.Max(0f, recipient.guest.will - willReduction);
 
         string text =
-            "TextMote_ResistanceReduced".Translate(resistance.ToString("F1"),
-                recipient.guest.resistance.ToString("F1"));
+            "TextMote_WillReduced".Translate(will.ToString("F1"),
+                recipient.guest.will.ToString("F1"));
         MoteMaker.ThrowText((initiator.DrawPos + recipient.DrawPos) / 2f, initiator.Map, text, 8f);
 
-        if (recipient.guest.resistance != 0f)
+        if (recipient.guest.will != 0f)
         {
             return;
         }
 
-        var taggedString = "MessagePrisonerResistanceBroken".Translate(recipient.LabelShort, initiator.LabelShort,
-            initiator.Named("WARDEN"), recipient.Named("PRISONER"));
+        var taggedString = "MessagePrisonerWillBroken".Translate(initiator, recipient);
         // I'm not sure if the statement below is needed because the beater doesn't directly initiate recruitment/enslavement after the beating, but maybe it's better to leave it as it is. - Virstag
-        if (recipient.guest.interactionMode == PrisonerInteractionModeDefOf.AttemptRecruit)
+        if (recipient.guest.interactionMode == PrisonerInteractionModeDefOf.Enslave)
         {
-            taggedString += " " + "MessagePrisonerResistanceBroken_RecruitAttempsWillBegin".Translate();
+            taggedString += " " + "MessagePrisonerWillBroken_RecruitAttempsWillBegin".Translate();
         }
 
         Messages.Message(taggedString, recipient, MessageTypeDefOf.PositiveEvent);
