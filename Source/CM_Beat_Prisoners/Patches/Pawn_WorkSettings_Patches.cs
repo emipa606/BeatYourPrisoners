@@ -13,7 +13,7 @@ public static class Pawn_WorkSettings_EnableAndInitialize
     {
         if (___priorities != null)
         {
-            __instance.SetPriority(BeatPrisonersDefOf.CM_Beat_Prisoners_WorkType_Break_Resistance, 0);
+            __instance.SetPriority(BeatPrisonersDefOf.CM_Beat_Prisoners_WorkType_Break, 0);
         }
     }
 }
