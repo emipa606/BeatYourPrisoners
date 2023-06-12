@@ -131,11 +131,11 @@ public class JobDriver_Break : JobDriver
         });
     }
 
-    private Toil GotoPrisoner(Pawn pawn, Pawn talkee)
+    private Toil GotoPrisoner(Pawn beater, Pawn talkee)
     {
         var toil = new Toil
         {
-            initAction = delegate { pawn.pather.StartPath(talkee, PathEndMode.Touch); }
+            initAction = delegate { beater.pather.StartPath(talkee, PathEndMode.Touch); }
         };
         toil.AddFailCondition(delegate
         {
@@ -156,13 +156,13 @@ public class JobDriver_Break : JobDriver
         return toil;
     }
 
-    private Toil ThreatenPrisoner(Pawn pawn, Pawn talkee)
+    private Toil ThreatenPrisoner(Pawn beater, Pawn talkee)
     {
         var toil = new Toil
         {
             initAction = delegate
             {
-                pawn.interactions.TryInteractWith(talkee,
+                beater.interactions.TryInteractWith(talkee,
                     BeatPrisonersDefOf.CM_Beat_Prisoners_Interaction_Prisoner_Threatened);
             },
             //toil.FailOn(() => !talkee.guest.ScheduledForInteraction);

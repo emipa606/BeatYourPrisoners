@@ -6,9 +6,9 @@ namespace CM_Beat_Prisoners;
 
 public static class Logger
 {
-    public static bool MessageEnabled = false;
-    public static bool WarningEnabled = true;
-    public static bool ErrorEnabled = true;
+    public static readonly bool MessageEnabled = false;
+    public static readonly bool WarningEnabled = true;
+    public static readonly bool ErrorEnabled = true;
 
     public static bool MessageInProgress;
 

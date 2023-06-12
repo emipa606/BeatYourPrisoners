@@ -1,5 +1,8 @@
 # Changelog for BeatYourPrisoners
 
+1.4.4 - Support for reducing will of prisoners as well. Thank you to Virstag!
+
+
 1.4.3 - Should now show the right work-label when beating prisoners
 
 

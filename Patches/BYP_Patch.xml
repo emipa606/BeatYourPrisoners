@@ -1,36 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
-
   <Operation Class="PatchOperationReplace">
     <xpath>/Defs/PrisonerInteractionModeDef[defName="ReduceResistance"]/description</xpath>
-		<value>
-			<description>If the prisoner still has resistance, wardens will speak to them (and breakers will beat them) to reduce it. No recruit attempts will be made.</description>
-		</value>
+    <value>
+      <description>If the prisoner still has resistance, wardens will speak to them (and breakers will beat them) to reduce it. No recruit attempts will be made.</description>
+    </value>
   </Operation>
-
-
-
-
-	<Operation Class="PatchOperationFindMod">
-		<mods>
-			<li>Ideology</li>
-		</mods>
-		<match Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/PrisonerInteractionModeDef[defName="ReduceWill"]/description</xpath>
-						<value>
-							<description>Wardens will threaten the prisoner (and breakers will beat them) to reduce their will, but won't enslave them.</description>
-						</value>
-				</li> 
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/WorkTypeDef[defName="CM_Beat_Prisoners_WorkType_Break"]/description</xpath>
-						<value>
-							<description>Break the resistance or will of prisoners through violence.</description>
-						</value>
-				</li>   
-  			</operations>
-		</match>
-	</Operation>
-
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Ideology</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/PrisonerInteractionModeDef[defName="ReduceWill"]/description</xpath>
+          <value>
+            <description>Wardens will threaten the prisoner (and breakers will beat them) to reduce their will, but won't enslave them.</description>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/WorkTypeDef[defName="CM_Beat_Prisoners_WorkType_Break"]/description</xpath>
+          <value>
+            <description>Break the resistance or will of prisoners through violence.</description>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
 </Patch>

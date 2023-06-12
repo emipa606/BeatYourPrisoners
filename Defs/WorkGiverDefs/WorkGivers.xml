@@ -13,7 +13,6 @@
       <li>Manipulation</li>
     </requiredCapacities>
   </WorkGiverDef>
-  
   <!-- ============= Break Will ============= -->
   <WorkGiverDef>
     <defName>CM_Beat_Prisoners_WorkGiver_Break_Will</defName>
