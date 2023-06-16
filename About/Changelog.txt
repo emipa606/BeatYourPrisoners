@@ -1,5 +1,8 @@
 # Changelog for BeatYourPrisoners
 
+1.4.5 - The 1.3 version should work better now
+
+
 1.4.4 - Support for reducing will of prisoners as well. Thank you to Virstag!
 
 

@@ -5,6 +5,8 @@
 Update of Captain Muscles (Nathan Harbour)s mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2380798255
 
+- Prisoners now also get beaten to reduce their will, thanks Virstag for the added functionality.
+
 ![Image](https://i.imgur.com/pufA0kM.png)
 
 	
@@ -95,4 +97,4 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2446986597]![Image](https
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2902220334]Last updated 2023-06-12
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2902220334]Last updated 2023-06-16
