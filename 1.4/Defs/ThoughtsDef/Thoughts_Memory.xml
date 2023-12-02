@@ -10,6 +10,11 @@
       <li>Psychopath</li>
       <li>Bloodlust</li>
     </nullifyingTraits>
+    <nullifyingPrecepts>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_DontCare</li>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_RespectedGuilty</li>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_AlwaysRespected</li>
+    </nullifyingPrecepts>
     <stages>
       <li>
         <label>prisoner beaten</label>
@@ -25,6 +30,11 @@
     <requiredTraits>
       <li>Kind</li>
     </requiredTraits>
+    <nullifyingPrecepts>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_DontCare</li>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_RespectedGuilty</li>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_AlwaysRespected</li>
+    </nullifyingPrecepts>
     <stages>
       <li>
         <label>prisoner beaten</label>
@@ -107,6 +117,11 @@
       <li>Kind</li>
       <li>Wimp</li>
     </requiredTraits>
+    <nullifyingPrecepts>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_DontCare</li>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_RespectedGuilty</li>
+      <li MayRequire="Crustypeanut.WCE2.Core,Ludeon.RimWorld.Ideology">WCE2_Torture_AlwaysRespected</li>
+    </nullifyingPrecepts>
     <stages>
       <li>
         <label>gave beating</label>
