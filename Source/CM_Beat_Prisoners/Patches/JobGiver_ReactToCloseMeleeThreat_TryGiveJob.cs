@@ -10,7 +10,7 @@ namespace CM_Beat_Prisoners.Patches;
 public static class JobGiver_ReactToCloseMeleeThreat_TryGiveJob
 {
     [HarmonyPostfix]
-    public static void Postfix(JobGiver_ReactToCloseMeleeThreat __instance, Pawn pawn, ref Job __result)
+    public static void Postfix(Pawn pawn, ref Job __result)
     {
         if (!pawn.IsPrisoner || pawn.mindState.meleeThreat == null || __result == null)
         {

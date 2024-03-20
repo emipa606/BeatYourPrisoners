@@ -12,17 +12,17 @@ public class BeatingInProgress : IExposable
 
     private const float basePrisonBreakChance = 0.25f;
 
-    private static readonly List<Pair<string, float>> fightBackTraitFactors = new List<Pair<string, float>>
-    {
+    private static readonly List<Pair<string, float>> fightBackTraitFactors =
+    [
         new Pair<string, float>("Wimp", 0.5f),
         new Pair<string, float>("Kind", 0.5f),
         new Pair<string, float>("Masochist", 0.0f),
         new Pair<string, float>("Brawler", 2.0f),
         new Pair<string, float>("Bloodlust", 2.0f)
-    };
+    ];
 
     public Pawn beatee;
-    public List<Pawn> beaters = new List<Pawn>();
+    public List<Pawn> beaters = [];
 
     public bool fightingBack;
 

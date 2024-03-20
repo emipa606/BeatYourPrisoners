@@ -16,7 +16,7 @@ public class WorkGiver_Warden_BreakWill : WorkGiver_Warden
 
         var pawn2 = (Pawn)target;
 
-        var interactionMode = pawn2.guest.interactionMode;
+        var interactionMode = pawn2.guest.ExclusiveInteractionMode;
         var beatingTracker = Current.Game.World.GetComponent<BeatingTracker>();
 
         var canGiveBeating = (beatingTracker?.CanGiveBeating(pawn) ?? true) &&

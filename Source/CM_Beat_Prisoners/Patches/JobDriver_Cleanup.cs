@@ -9,7 +9,7 @@ namespace CM_Beat_Prisoners.Patches;
 public static class JobDriver_Cleanup
 {
     [HarmonyPostfix]
-    public static void Postfix(JobDriver __instance, JobCondition condition)
+    public static void Postfix(JobDriver __instance)
     {
         if (__instance is not JobDriver_Break jobDriverBreak)
         {

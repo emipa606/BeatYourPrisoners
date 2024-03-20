@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <InteractionDef>
+    <defName>CM_Beat_Prisoners_Interaction_Prisoner_Threatened</defName>
+    <label>try to break resistance</label>
+    <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+    <symbol>Things/Mote/SpeechSymbols/Insult</symbol>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>15</initiatorXpGainAmount>
+    <recipientThought>CM_Beat_Prisoners_Thought_Enmity_Built</recipientThought>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] [toldastoryabout] [subject] to [RECIPIENT_nameDef].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] told [RECIPIENT_nameDef] about [subject].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] described [subject] to [RECIPIENT_nameDef].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] encouraged [RECIPIENT_nameDef] to [talkabout] [subject].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] offered a chance for [RECIPIENT_nameDef] to [talkabout] [subject].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] expressed interest in taking away [RECIPIENT_nameDef]'s [PersonalCharacteristic].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] asked [RECIPIENT_nameDef] how [RECIPIENT_pronoun] would feel about living life without [RECIPIENT_possessive] [PersonalCharacteristic].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] made [RECIPIENT_nameDef] an offer [RECIPIENT_pronoun] couldn't refuse.</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] offered [RECIPIENT_nameDef] [offer].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] threatened to tear [RECIPIENT_nameDef] a new [orifice]-hole.</li>
+        <li>toldastoryabout(p=2)-&gt;told a story about</li>
+        <li>toldastoryabout-&gt;told a funny story about</li>
+        <li>toldastoryabout-&gt;told a heartfelt story about</li>
+        <li>toldastoryabout-&gt;told an old story about</li>
+        <li>toldastoryabout-&gt;told a family story about</li>
+        <li>toldastoryabout-&gt;told a childhood story about</li>
+        <li>toldastoryabout-&gt;mentioned an anecdote about</li>
+        <li>talkabout-&gt;talk about</li>
+        <li>talkabout-&gt;discuss</li>
+        <li>talkabout-&gt;have a discussion about</li>
+        <li>talkabout-&gt;ask about</li>
+        <li>talkabout-&gt;think about</li>
+        <li>talkabout-&gt;find common ground around</li>
+        <li>subject-&gt;breaking legs</li>
+        <li>subject-&gt;cutting off fingers</li>
+        <li>subject-&gt;sleeping with the fishes</li>
+        <li>subject(p=4)-&gt;[ConceptNegative]</li>
+        <li>subject(p=2)-&gt;[ConceptAngsty]</li>
+        <li>offer-&gt;a knuckle sandwich</li>
+        <li>orifice-&gt;ass</li>
+        <li>orifice-&gt;mouth</li>
+        <li>orifice-&gt;ear</li>
+        <li>orifice-&gt;nose</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+  <InteractionDef>
+    <defName>CM_Beat_Prisoners_Interaction_Prisoner_Threatened_Will</defName>
+    <label>try to break will</label>
+    <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+    <symbol>Things/Mote/SpeechSymbols/ReduceWill</symbol>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>15</initiatorXpGainAmount>
+    <recipientThought>CM_Beat_Prisoners_Thought_Enmity_Built</recipientThought>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] told [RECIPIENT_nameDef] [RECIPIENT_pronoun] [negative].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] explained that [RECIPIENT_nameDef] [negative].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] threatened [RECIPIENT_nameDef] with [threat] if [RECIPIENT_pronoun] [refused].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] informed [RECIPIENT_nameDef] that [RECIPIENT_pronoun] [disillusionment].</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] demanded [RECIPIENT_nameDef] [givein] to the colony.</li>
+        <li>negative-&gt;had no future</li>
+        <li>negative-&gt;had no way to escape</li>
+        <li>negative-&gt;had no future outside of the colony</li>
+        <li>negative-&gt;didn't have the means to escape</li>
+        <li>negative-&gt;should submit immediately</li>
+        <li>negative-&gt;should forget [RECIPIENT_possessive] aspirations</li>
+        <li>negative-&gt;should submit to the colony</li>
+        <li>threat-&gt;torture</li>
+        <li>threat-&gt;punishment</li>
+        <li>threat-&gt;mutilation</li>
+        <li>threat-&gt;starvation</li>
+        <li>threat-&gt;lifetime incarceration</li>
+        <li>threat-&gt;death</li>
+        <li>threat-&gt;isolation</li>
+        <li>threat-&gt;dismemberment</li>
+        <li>threat-&gt;blunt trauma</li>
+        <li>threat-&gt;lacerations</li>
+        <li>threat-&gt;cannibalism</li>
+        <li>threat-&gt;organ harvesting</li>
+        <li>threat-&gt;long confinement</li>
+        <li>refused-&gt;tried to escape</li>
+        <li>refused-&gt;insulted the colony</li>
+        <li>refused-&gt;did not work</li>
+        <li>refused-&gt;refused a command</li>
+        <li>refused-&gt;resisted submitting</li>
+        <li>refused-&gt;refused to obey</li>
+        <li>refused-&gt;behaved impertinently</li>
+        <li>disillusionment-&gt;should accept [RECIPIENT_possessive] situation</li>
+        <li>disillusionment-&gt;had no hope for another future</li>
+        <li>disillusionment-&gt;would be best off submitting</li>
+        <li>disillusionment-&gt;would not survive on [RECIPIENT_possessive] own</li>
+        <li>disillusionment-&gt;had no option but to submit</li>
+        <li>givein-&gt;give in</li>
+        <li>givein-&gt;submit [RECIPIENT_objective]self</li>
+        <li>givein-&gt;surrender [RECIPIENT_objective]self</li>
+        <li>givein-&gt;yield [RECIPIENT_objective]self</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+  <InteractionDef>
+    <defName>CM_Beat_Prisoners_Interaction_Prisoner_Beating_Conclusion</defName>
+    <label>recruit attempt</label>
+    <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+    <symbol>Things/Mote/SpeechSymbols/Insult</symbol>
+    <workerClass>CM_Beat_Prisoners.InteractionWorker_BreakAttempt</workerClass>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>60</initiatorXpGainAmount>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] promised more [goodthing] to [RECIPIENT_nameDef] unless [RECIPIENT_pronoun] joined.</li>
+        <li>goodthing(p=15)-&gt;[ConceptNegative]</li>
+        <li>goodthing(p=5)-&gt;[ConceptAngsty]</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+  <InteractionDef>
+    <defName>CM_Beat_Prisoners_Interaction_Prisoner_Beating_Will_Conclusion</defName>
+    <label>enslave attempt</label>
+    <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+    <symbol>UI/Icons/Slavery</symbol>
+    <workerClass>CM_Beat_Prisoners.InteractionWorker_BreakWillAttempt</workerClass>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>60</initiatorXpGainAmount>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] told [RECIPIENT_nameDef] that [RECIPIENT_pronoun] must work for the colony.</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] informed [RECIPIENT_nameDef] that [RECIPIENT_pronoun] must obey orders and work.</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] ordered [RECIPIENT_nameDef] to prepare for a life of forced labour.</li>
+        <li>r_logentry-&gt;[INITIATOR_nameDef] explained to [RECIPIENT_nameDef] that [RECIPIENT_pronoun] must work or face punishment.</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+</Defs>

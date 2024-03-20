@@ -9,9 +9,5 @@ public class BeatPrisonersMod : Mod
     {
         var harmony = new Harmony("CM_Beat_Prisoners");
         harmony.PatchAll();
-
-        Instance = this;
     }
-
-    public static BeatPrisonersMod Instance { get; private set; }
 }

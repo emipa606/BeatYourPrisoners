@@ -9,31 +9,31 @@ public class InteractionWorker_BreakWillAttempt : InteractionWorker
 {
     private const float negotiationFactor = 0.5f;
 
-    private static readonly List<Pair<string, float>> initiatorTraitFactors = new List<Pair<string, float>>
-    {
+    private static readonly List<Pair<string, float>> initiatorTraitFactors =
+    [
         new Pair<string, float>("Wimp", 0.5f),
         new Pair<string, float>("Kind", 0.5f),
         new Pair<string, float>("Brawler", 1.5f),
         new Pair<string, float>("Bloodlust", 1.5f),
         new Pair<string, float>("Psychopath", 1.5f)
-    };
+    ];
 
-    private static readonly List<Pair<string, float>> recipientTraitFactors = new List<Pair<string, float>>
-    {
+    private static readonly List<Pair<string, float>> recipientTraitFactors =
+    [
         new Pair<string, float>("Wimp", 3.0f),
         new Pair<string, float>("Masochist", 2.0f),
         new Pair<string, float>("Tough", 0.5f),
         new Pair<string, float>("Brawler", 0.5f),
         new Pair<string, float>("Bloodlust", 0.5f),
         new Pair<string, float>("Psychopath", 0.5f)
-    };
+    ];
 
-    private static readonly SimpleCurve WillImpactFactorCurve_Pain = new SimpleCurve
-    {
+    private static readonly SimpleCurve WillImpactFactorCurve_Pain =
+    [
         new CurvePoint(0f, 0.1f),
         new CurvePoint(0.5f, 2f),
         new CurvePoint(1f, 4f)
-    };
+    ];
 
     public override void Interacted(Pawn initiator, Pawn recipient, List<RulePackDef> extraSentencePacks,
         out string letterText, out string letterLabel, out LetterDef letterDef, out LookTargets lookTargets)
@@ -85,7 +85,7 @@ public class InteractionWorker_BreakWillAttempt : InteractionWorker
 
         var taggedString = "MessagePrisonerWillBroken".Translate(initiator, recipient);
         // I'm not sure if the statement below is needed because the beater doesn't directly initiate recruitment/enslavement after the beating, but maybe it's better to leave it as it is. - Virstag
-        if (recipient.guest.interactionMode == PrisonerInteractionModeDefOf.Enslave)
+        if (recipient.guest.ExclusiveInteractionMode == PrisonerInteractionModeDefOf.Enslave)
         {
             taggedString += " " + "MessagePrisonerWillBroken_RecruitAttempsWillBegin".Translate();
         }

@@ -9,7 +9,7 @@ namespace CM_Beat_Prisoners.Patches;
 public static class Pawn_WorkSettings_EnableAndInitialize
 {
     [HarmonyPostfix]
-    public static void Postfix(Pawn_WorkSettings __instance, Pawn ___pawn, DefMap<WorkTypeDef, int> ___priorities)
+    public static void Postfix(Pawn_WorkSettings __instance, DefMap<WorkTypeDef, int> ___priorities)
     {
         if (___priorities != null)
         {

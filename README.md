@@ -6,6 +6,7 @@ Update of Captain Muscles (Nathan Harbour)s mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2380798255
 
 - Prisoners now also get beaten to reduce their will, thanks Virstag for the added functionality.
+- The positive torture precepts in https://steamcommunity.com/sharedfiles/filedetails/?id=2059450213]War Crimes Expanded 2 Core now nullifies the bad thoughts of beating prisoners
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 

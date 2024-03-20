@@ -5,17 +5,13 @@ using Verse;
 
 namespace CM_Beat_Prisoners;
 
-public class BeatingTracker : WorldComponent
+public class BeatingTracker(World world) : WorldComponent(world)
 {
     private const int minimumBeatingInterval = 30000;
 
-    private List<BeatingCounter> beatingCounters = new List<BeatingCounter>();
+    private List<BeatingCounter> beatingCounters = [];
 
-    private List<BeatingInProgress> beatingsInProgress = new List<BeatingInProgress>();
-
-    public BeatingTracker(World world) : base(world)
-    {
-    }
+    private List<BeatingInProgress> beatingsInProgress = [];
 
     public override void ExposeData()
     {

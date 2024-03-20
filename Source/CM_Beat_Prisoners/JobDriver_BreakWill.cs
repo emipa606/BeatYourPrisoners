@@ -47,7 +47,7 @@ public class JobDriver_BreakWill : JobDriver
         {
             if (Victim is not { Spawned: true } || Victim.InMentalState || !Victim.IsPrisonerOfColony ||
                 !Victim.guest.PrisonerIsSecure ||
-                Victim.guest.interactionMode != PrisonerInteractionModeDefOf.ReduceWill)
+                Victim.guest.ExclusiveInteractionMode != PrisonerInteractionModeDefOf.ReduceWill)
             {
                 pawn.jobs.curDriver.JumpToToil(beatingCancelled);
             }
