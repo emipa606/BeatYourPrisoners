@@ -7,36 +7,36 @@ namespace CM_Beat_Prisoners;
 
 public class BeatingInProgress : IExposable
 {
-    private const float baseFightBackChance = 0.05f;
-    private const float fightBackChanceMeleeFactor = 0.02f;
+    private const float BaseFightBackChance = 0.05f;
+    private const float FightBackChanceMeleeFactor = 0.02f;
 
-    private const float basePrisonBreakChance = 0.25f;
+    private const float BasePrisonBreakChance = 0.25f;
 
     private static readonly List<Pair<string, float>> fightBackTraitFactors =
     [
-        new Pair<string, float>("Wimp", 0.5f),
-        new Pair<string, float>("Kind", 0.5f),
-        new Pair<string, float>("Masochist", 0.0f),
-        new Pair<string, float>("Brawler", 2.0f),
-        new Pair<string, float>("Bloodlust", 2.0f)
+        new("Wimp", 0.5f),
+        new("Kind", 0.5f),
+        new("Masochist", 0.0f),
+        new("Brawler", 2.0f),
+        new("Bloodlust", 2.0f)
     ];
 
-    public Pawn beatee;
-    public List<Pawn> beaters = [];
+    public Pawn Beatee;
+    public List<Pawn> Beaters = [];
 
-    public bool fightingBack;
+    public bool FightingBack;
 
-    public float startingPainLevel;
+    private float startingPainLevel;
 
-    public bool HasValidBeatee => beatee is { Spawned: true, IsPrisonerOfColony: true } &&
-                                  beatee.IsPrisonerInPrisonCell();
+    public bool HasValidBeatee => Beatee is { Spawned: true, IsPrisonerOfColony: true } &&
+                                  Beatee.IsPrisonerInPrisonCell();
 
     public void ExposeData()
     {
-        Scribe_References.Look(ref beatee, "beatee");
-        Scribe_Collections.Look(ref beaters, "beaters", LookMode.Reference);
+        Scribe_References.Look(ref Beatee, "beatee");
+        Scribe_Collections.Look(ref Beaters, "beaters", LookMode.Reference);
 
-        Scribe_Values.Look(ref fightingBack, "fightingBack");
+        Scribe_Values.Look(ref FightingBack, "fightingBack");
         Scribe_Values.Look(ref startingPainLevel, "startingPainLevel");
     }
 
@@ -50,78 +50,78 @@ public class BeatingInProgress : IExposable
 
     public void AddBeater(Pawn newBeater)
     {
-        if (beaters.Contains(newBeater))
+        if (Beaters.Contains(newBeater))
         {
             return;
         }
 
-        beaters.Add(newBeater);
-        Logger.MessageFormat(this, "{0} joined in on {1}'s beating", newBeater, beatee);
+        Beaters.Add(newBeater);
+        Logger.MessageFormat(this, "{0} joined in on {1}'s beating", newBeater, Beatee);
     }
 
     public void RemoveBeater(Pawn oldBeater)
     {
-        if (!beaters.Contains(oldBeater))
+        if (!Beaters.Contains(oldBeater))
         {
             return;
         }
 
-        beaters.Remove(oldBeater);
-        Logger.MessageFormat(this, "{0} no longer beating {1}", oldBeater, beatee);
+        Beaters.Remove(oldBeater);
+        Logger.MessageFormat(this, "{0} no longer beating {1}", oldBeater, Beatee);
     }
 
     public bool IsBeating(Pawn beater)
     {
-        return beaters.Any(bter => bter == beater);
+        return Beaters.Any(originalBeater => originalBeater == beater);
     }
 
     public void TryFightBack()
     {
         if (!HasValidBeatee)
         {
-            fightingBack = false;
+            FightingBack = false;
             return;
         }
 
-        if (fightingBack)
+        if (FightingBack)
         {
             return;
         }
 
-        var fightBackChance = baseFightBackChance;
+        var fightBackChance = BaseFightBackChance;
 
-        if (beatee.story?.traits != null && beatee.skills != null)
+        if (Beatee.story?.traits != null && Beatee.skills != null)
         {
-            fightBackChance += fightBackChanceMeleeFactor * beatee.skills.GetSkill(SkillDefOf.Melee).Level;
-            fightBackChance = FactorInFightingBackTraits(beatee, fightBackChance);
+            fightBackChance += FightBackChanceMeleeFactor * Beatee.skills.GetSkill(SkillDefOf.Melee).Level;
+            fightBackChance = factorInFightingBackTraits(Beatee, fightBackChance);
         }
 
-        fightingBack = Rand.Chance(fightBackChance);
+        FightingBack = Rand.Chance(fightBackChance);
 
-        Logger.MessageFormat(this, "{0} fighting back: {1}", beatee, fightingBack);
+        Logger.MessageFormat(this, "{0} fighting back: {1}", Beatee, FightingBack);
     }
 
     public void TryPrisonBreak()
     {
-        if (!HasValidBeatee || beatee.Downed)
+        if (!HasValidBeatee || Beatee.Downed)
         {
             return;
         }
 
-        if (!fightingBack)
+        if (!FightingBack)
         {
             return;
         }
 
-        Logger.MessageFormat(this, "{0} prison break chance: {1}", beatee, basePrisonBreakChance);
+        Logger.MessageFormat(this, "{0} prison break chance: {1}", Beatee, BasePrisonBreakChance);
 
-        if (Rand.Chance(basePrisonBreakChance))
+        if (Rand.Chance(BasePrisonBreakChance))
         {
-            PrisonBreakUtility.StartPrisonBreak(beatee);
+            PrisonBreakUtility.StartPrisonBreak(Beatee);
         }
     }
 
-    private float FactorInFightingBackTraits(Pawn pawn, float initialValue)
+    private float factorInFightingBackTraits(Pawn pawn, float initialValue)
     {
         var traits = pawn.story.traits;
 

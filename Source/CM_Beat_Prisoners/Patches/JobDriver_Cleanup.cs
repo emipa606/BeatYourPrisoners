@@ -4,11 +4,9 @@ using Verse.AI;
 
 namespace CM_Beat_Prisoners.Patches;
 
-[HarmonyPatch(typeof(JobDriver))]
-[HarmonyPatch("Cleanup", MethodType.Normal)]
+[HarmonyPatch(typeof(JobDriver), nameof(JobDriver.Cleanup), MethodType.Normal)]
 public static class JobDriver_Cleanup
 {
-    [HarmonyPostfix]
     public static void Postfix(JobDriver __instance)
     {
         if (__instance is not JobDriver_Break jobDriverBreak)

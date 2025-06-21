@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <RulePackDef>
     <defName>BYPUtility</defName>
@@ -6,7 +6,7 @@
       <rulesStrings>
       </rulesStrings>
       <rulesFiles>
-        <li>ConceptNegative-&gt;Words/Nouns/Concepts_Negative_BYP</li>
+        <li>ConceptNegative->Words/Nouns/Concepts_Negative_BYP</li>
       </rulesFiles>
     </rulePack>
   </RulePackDef>

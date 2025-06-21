@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Break the resistance or will of prisoners through violence. -->
+  <CM_Beat_Prisoners_WorkType_Break.description>Break the resistance or will of prisoners through violence.</CM_Beat_Prisoners_WorkType_Break.description>
+  <!-- EN: breaking -->
+  <CM_Beat_Prisoners_WorkType_Break.gerundLabel>breaking</CM_Beat_Prisoners_WorkType_Break.gerundLabel>
+  <!-- EN: Break -->
+  <CM_Beat_Prisoners_WorkType_Break.labelShort>Break</CM_Beat_Prisoners_WorkType_Break.labelShort>
+  <!-- EN: Breaker -->
+  <CM_Beat_Prisoners_WorkType_Break.pawnLabel>Breaker</CM_Beat_Prisoners_WorkType_Break.pawnLabel>
+  <!-- EN: Break -->
+  <CM_Beat_Prisoners_WorkType_Break.verb>Break</CM_Beat_Prisoners_WorkType_Break.verb>
+</LanguageData>

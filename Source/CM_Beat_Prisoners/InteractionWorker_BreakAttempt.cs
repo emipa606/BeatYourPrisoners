@@ -7,25 +7,23 @@ namespace CM_Beat_Prisoners;
 
 public class InteractionWorker_BreakAttempt : InteractionWorker
 {
-    private const float negotiationFactor = 0.5f;
-
     private static readonly List<Pair<string, float>> initiatorTraitFactors =
     [
-        new Pair<string, float>("Wimp", 0.5f),
-        new Pair<string, float>("Kind", 0.5f),
-        new Pair<string, float>("Brawler", 1.5f),
-        new Pair<string, float>("Bloodlust", 1.5f),
-        new Pair<string, float>("Psychopath", 1.5f)
+        new("Wimp", 0.5f),
+        new("Kind", 0.5f),
+        new("Brawler", 1.5f),
+        new("Bloodlust", 1.5f),
+        new("Psychopath", 1.5f)
     ];
 
     private static readonly List<Pair<string, float>> recipientTraitFactors =
     [
-        new Pair<string, float>("Wimp", 3.0f),
-        new Pair<string, float>("Masochist", 2.0f),
-        new Pair<string, float>("Tough", 0.5f),
-        new Pair<string, float>("Brawler", 0.5f),
-        new Pair<string, float>("Bloodlust", 0.5f),
-        new Pair<string, float>("Psychopath", 0.5f)
+        new("Wimp", 3.0f),
+        new("Masochist", 2.0f),
+        new("Tough", 0.5f),
+        new("Brawler", 0.5f),
+        new("Bloodlust", 0.5f),
+        new("Psychopath", 0.5f)
     ];
 
     private static readonly SimpleCurve ResistanceImpactFactorCurve_Pain =
@@ -62,8 +60,8 @@ public class InteractionWorker_BreakAttempt : InteractionWorker
 
         resistanceReduction *= painFactor;
 
-        resistanceReduction = FactorInInitiatorTraits(initiator, resistanceReduction);
-        resistanceReduction = FactorInRecipientTraits(recipient, resistanceReduction);
+        resistanceReduction = factorInInitiatorTraits(initiator, resistanceReduction);
+        resistanceReduction = factorInRecipientTraits(recipient, resistanceReduction);
 
         Logger.AddToMessage("Final resistance reduction: {0}", resistanceReduction);
         Logger.DisplayMessage();
@@ -94,7 +92,7 @@ public class InteractionWorker_BreakAttempt : InteractionWorker
         Messages.Message(taggedString, recipient, MessageTypeDefOf.PositiveEvent);
     }
 
-    private float FactorInInitiatorTraits(Pawn initiator, float initialValue)
+    private static float factorInInitiatorTraits(Pawn initiator, float initialValue)
     {
         // Factor initiator traits
         var initiatorTraits = initiator.story.traits;
@@ -114,7 +112,7 @@ public class InteractionWorker_BreakAttempt : InteractionWorker
         return initialValue;
     }
 
-    private float FactorInRecipientTraits(Pawn recipient, float initialValue)
+    private static float factorInRecipientTraits(Pawn recipient, float initialValue)
     {
         // Factor recipient traits
         var recipientTraits = recipient.story.traits;

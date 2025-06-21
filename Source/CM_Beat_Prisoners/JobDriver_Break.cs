@@ -32,9 +32,9 @@ public class JobDriver_Break : JobDriver
 
         yield return beatingContinues;
 
-        yield return GotoPrisoner(pawn, Victim);
+        yield return gotoPrisoner(pawn, Victim);
         yield return Toils_Interpersonal.GotoInteractablePosition(TargetIndex.A);
-        yield return ThreatenPrisoner(pawn, Victim);
+        yield return threatenPrisoner(pawn, Victim);
 
         yield return Toils_General.Do(delegate
         {
@@ -80,17 +80,11 @@ public class JobDriver_Break : JobDriver
                 }
             }
 
-            //if (!pawn.meleeVerbs.TryMeleeAttack(Victim, job.verbToUse) || pawn.CurJob == null ||
-            //    pawn.jobs.curDriver != this)
-            //{
-            //    return;
-            //}
-
             numMeleeAttacksMade++;
 
             var beating = Current.Game.World.GetComponent<BeatingTracker>()?.GetBeatingInProgress(Victim);
             // Keep going if there is a fight, otherwise do the requested number of attacks
-            if (beating is { fightingBack: true } || numMeleeAttacksMade < job.maxNumMeleeAttacks)
+            if (beating is { FightingBack: true } || numMeleeAttacksMade < job.maxNumMeleeAttacks)
             {
                 pawn.jobs.curDriver.JumpToToil(beatingContinues);
             }
@@ -120,8 +114,7 @@ public class JobDriver_Break : JobDriver
         });
         yield return giveThoughts;
 
-        //yield return Toils_Interpersonal.SetLastInteractTime(TargetIndex.A);
-        yield return BreakResistance(TargetIndex.A);
+        yield return breakResistance(TargetIndex.A);
 
         yield return beatingCancelled;
 
@@ -131,7 +124,7 @@ public class JobDriver_Break : JobDriver
         });
     }
 
-    private Toil GotoPrisoner(Pawn beater, Pawn talkee)
+    private static Toil gotoPrisoner(Pawn beater, Pawn talkee)
     {
         var toil = new Toil
         {
@@ -156,7 +149,7 @@ public class JobDriver_Break : JobDriver
         return toil;
     }
 
-    private Toil ThreatenPrisoner(Pawn beater, Pawn talkee)
+    private static Toil threatenPrisoner(Pawn beater, Pawn talkee)
     {
         var toil = new Toil
         {
@@ -165,25 +158,22 @@ public class JobDriver_Break : JobDriver
                 beater.interactions.TryInteractWith(talkee,
                     BeatPrisonersDefOf.CM_Beat_Prisoners_Interaction_Prisoner_Threatened);
             },
-            //toil.FailOn(() => !talkee.guest.ScheduledForInteraction);
             socialMode = RandomSocialMode.Off,
             // This needs to be instant in case a fight is progress
             defaultCompleteMode = ToilCompleteMode.Instant,
-            //toil.defaultCompleteMode = ToilCompleteMode.Delay;
-            //toil.defaultDuration = 175;
             activeSkill = () => SkillDefOf.Social
         };
         return toil;
     }
 
-    private Toil BreakResistance(TargetIndex recruiteeInd)
+    private static Toil breakResistance(TargetIndex recruiteeInd)
     {
         var toil = new Toil();
         toil.AddFinishAction(delegate
         {
             var actor = toil.actor;
             var recipient = (Pawn)actor.jobs.curJob.GetTarget(recruiteeInd).Thing;
-            if (!recipient.Spawned) // && pawn.Awake())
+            if (!recipient.Spawned)
             {
                 return;
             }

@@ -4,11 +4,9 @@ using Verse;
 
 namespace CM_Beat_Prisoners.Patches;
 
-[HarmonyPatch(typeof(Pawn_WorkSettings))]
-[HarmonyPatch("EnableAndInitialize", MethodType.Normal)]
+[HarmonyPatch(typeof(Pawn_WorkSettings), "EnableAndInitialize", MethodType.Normal)]
 public static class Pawn_WorkSettings_EnableAndInitialize
 {
-    [HarmonyPostfix]
     public static void Postfix(Pawn_WorkSettings __instance, DefMap<WorkTypeDef, int> ___priorities)
     {
         if (___priorities != null)

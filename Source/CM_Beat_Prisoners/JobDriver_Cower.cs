@@ -6,8 +6,6 @@ namespace CM_Beat_Prisoners;
 
 public class JobDriver_Cower : JobDriver
 {
-    protected Pawn Attacker => job.targetA.Pawn;
-
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
         return true;
@@ -28,7 +26,7 @@ public class JobDriver_Cower : JobDriver
                 }
 
                 var beating = Current.Game.World.GetComponent<BeatingTracker>()?.GetBeatingInProgress(pawn);
-                if (beating is { fightingBack: true })
+                if (beating is { FightingBack: true })
                 {
                     EndJobWith(JobCondition.InterruptForced);
                 }

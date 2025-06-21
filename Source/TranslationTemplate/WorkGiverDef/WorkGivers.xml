@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: break prisoners' resistance -->
+  <CM_Beat_Prisoners_WorkGiver_Break_Resistance.label>break prisoners' resistance</CM_Beat_Prisoners_WorkGiver_Break_Resistance.label>
+  <!-- EN: breaking -->
+  <CM_Beat_Prisoners_WorkGiver_Break_Resistance.gerund>breaking</CM_Beat_Prisoners_WorkGiver_Break_Resistance.gerund>
+  <!-- EN: break -->
+  <CM_Beat_Prisoners_WorkGiver_Break_Resistance.verb>break</CM_Beat_Prisoners_WorkGiver_Break_Resistance.verb>
+  <!-- EN: break prisoners' will -->
+  <CM_Beat_Prisoners_WorkGiver_Break_Will.label>break prisoners' will</CM_Beat_Prisoners_WorkGiver_Break_Will.label>
+  <!-- EN: breaking -->
+  <CM_Beat_Prisoners_WorkGiver_Break_Will.gerund>breaking</CM_Beat_Prisoners_WorkGiver_Break_Will.gerund>
+  <!-- EN: break -->
+  <CM_Beat_Prisoners_WorkGiver_Break_Will.verb>break</CM_Beat_Prisoners_WorkGiver_Break_Will.verb>
+</LanguageData>

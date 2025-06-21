@@ -1,4 +1,4 @@
-# BeatYourPrisoners
+# [Beat Your Prisoners (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2902220334)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -6,15 +6,13 @@ Update of Captain Muscles (Nathan Harbour)s mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2380798255
 
 - Prisoners now also get beaten to reduce their will, thanks Virstag for the added functionality.
-- The positive torture precepts in https://steamcommunity.com/sharedfiles/filedetails/?id=2059450213]War Crimes Expanded 2 Core now nullifies the bad thoughts of beating prisoners
+- The positive torture precepts in [War Crimes Expanded 2 Core](https://steamcommunity.com/sharedfiles/filedetails/?id=2059450213) now nullifies the bad thoughts of beating prisoners
 
 ![Image](https://i.imgur.com/pufA0kM.png)
-
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
 
 ![Image](https://i.imgur.com/Mi8ecQv.gif)
-
 *Beat Your Prisoners* lets you... well, beat the hell out of your prisoners. You can use this to speed up recruitment time, train melee skill, or purely for amusement.
 
 **As always, I appreciate any feedback you can give on this mod. For this one I could especially use feedback on balance aspects, such as whether beatings need to be more/less effective, are the mood penalties reasonable, do prisoners fight back or prison break too often, etc.**
@@ -34,10 +32,10 @@ Beating prisoners gives a stackable colony-wide mood penalty to most colonists.
 
 Prisoners will only be beaten when at full health, and breakers will deliver no more than 2 beatings in 24 hours.
 
-**[u]Base chance of fighting back (checked on each attack received):[/u]**
+**<ins>Base chance of fighting back (checked on each attack received):</ins>**
 (5% + (2% x melee skill))
 
-**[u]Traits that affect beatings:[/u]**
+**<ins>Traits that affect beatings:</ins>**
 *Masochist* - Loves to be beaten, will never fight back, easier to "break".
 *Wimp* - Greater mood penalty from being beaten, less likely to fight back, less effective at breaking, easier to break.
 *Kind* - Greater mood penalty when prisoner beaten, less likely to fight back, less effective at breaking.
@@ -50,7 +48,7 @@ Prisoners will only be beaten when at full health, and breakers will deliver no 
 ## F.A.Q.
 
 [hr][/hr]
-**[u]Q. Can you add feature X?[/u]**
+**<ins>Q. Can you add feature X?</ins>**
 A. Join my Discord server (button somewhere below) and request new features there.
 
 ## Credits
@@ -62,28 +60,10 @@ Coding: Captain Muscles
 ## Mods by Captain Muscles
 
 [hr][/hr]
-https://steamcommunity.com/sharedfiles/filedetails/?id=2307817213]![Image](https://i.imgur.com/VoByiic.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2329172147]![Image](https://i.imgur.com/74JDWuZ.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2362736503]![Image](https://i.imgur.com/WG8os6d.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2375902187]![Image](https://i.imgur.com/fCN25Ys.png)
-
-https://steamcommunity.com/sharedfiles/filedetails/?id=2336610918]![Image](https://i.imgur.com/jxSOtsD.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2353882085]![Image](https://i.imgur.com/rta4B3f.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2355912467]![Image](https://i.imgur.com/iEJE3WP.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2359566858]![Image](https://i.imgur.com/e85mMAF.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2366255005]![Image](https://i.imgur.com/liOYDNc.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2369675899]![Image](https://i.imgur.com/NtLQOev.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2369307661]![Image](https://i.imgur.com/smZOUK8.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2375193973]![Image](https://i.imgur.com/YwDNpdl.png)
-
-https://steamcommunity.com/sharedfiles/filedetails/?id=2380798255]![Image](https://i.imgur.com/HYnv9r5.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2385755478]![Image](https://i.imgur.com/lA8ImyW.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2401146569]![Image](https://i.imgur.com/t7SaJpC.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2403595130]![Image](https://i.imgur.com/rvZg6ly.png)
-
-https://steamcommunity.com/sharedfiles/filedetails/?id=2411212162]![Image](https://i.imgur.com/MYa8nY7.png)
-https://steamcommunity.com/sharedfiles/filedetails/?id=2446986597]![Image](https://i.imgur.com/DMXfSaJ.png)
-
+[![Image](https://i.imgur.com/VoByiic.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2329172147]![Image](https://i.imgur.com/74JDWuZ.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2362736503]![Image](https://i.imgur.com/WG8os6d.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2375902187]![Image](https://i.imgur.com/fCN25Ys.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=2307817213)
+[![Image](https://i.imgur.com/jxSOtsD.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2353882085]![Image](https://i.imgur.com/rta4B3f.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2355912467]![Image](https://i.imgur.com/iEJE3WP.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2359566858]![Image](https://i.imgur.com/e85mMAF.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2366255005]![Image](https://i.imgur.com/liOYDNc.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2369675899]![Image](https://i.imgur.com/NtLQOev.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2369307661]![Image](https://i.imgur.com/smZOUK8.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2375193973]![Image](https://i.imgur.com/YwDNpdl.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=2336610918)
+[![Image](https://i.imgur.com/HYnv9r5.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2385755478]![Image](https://i.imgur.com/lA8ImyW.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2401146569]![Image](https://i.imgur.com/t7SaJpC.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2403595130]![Image](https://i.imgur.com/rvZg6ly.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=2380798255)
+[![Image](https://i.imgur.com/MYa8nY7.png)[/url][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2446986597]![Image](https://i.imgur.com/DMXfSaJ.png)](https://steamcommunity.com/sharedfiles/filedetails/?id=2411212162)
 [hr][/hr]
 	
 ![Image](https://i.imgur.com/PwoNOj4.png)
@@ -92,13 +72,12 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2446986597]![Image](https
 
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib or the standalone https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader and command Ctrl+F12
+-  Post your error-log using [HugsLib](https://steamcommunity.com/workshop/filedetails/?id=818773962) or the standalone [Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
--  Use https://github.com/RimSort/RimSort/releases/latest]RimSort to sort your mods
+-  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
-
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2902220334]![Image](https://img.shields.io/github/v/release/emipa606/BeatYourPrisoners?label=latest%20version&style=plastic&color=9f1111&labelColor=black)
-
+[![Image](https://img.shields.io/github/v/release/emipa606/BeatYourPrisoners?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2902220334) | tags:  break,  resistance

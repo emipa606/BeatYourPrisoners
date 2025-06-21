@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: gave beating -->
+  <CM_Beat_Prisoners_Thought_Give_Beating_Mild.stages.gave_beating.label>gave beating</CM_Beat_Prisoners_Thought_Give_Beating_Mild.stages.gave_beating.label>
+  <!-- EN: I gave a prisoner a beating. I wish I didn't have to do this. -->
+  <CM_Beat_Prisoners_Thought_Give_Beating_Mild.stages.gave_beating.description>I gave a prisoner a beating. I wish I didn't have to do this.</CM_Beat_Prisoners_Thought_Give_Beating_Mild.stages.gave_beating.description>
+  <!-- EN: gave beating -->
+  <CM_Beat_Prisoners_Thought_Give_Beating_Spicy.stages.gave_beating.label>gave beating</CM_Beat_Prisoners_Thought_Give_Beating_Spicy.stages.gave_beating.label>
+  <!-- EN: I gave a prisoner a beating. I love my job! -->
+  <CM_Beat_Prisoners_Thought_Give_Beating_Spicy.stages.gave_beating.description>I gave a prisoner a beating. I love my job!</CM_Beat_Prisoners_Thought_Give_Beating_Spicy.stages.gave_beating.description>
+  <!-- EN: prisoner beaten -->
+  <CM_Beat_Prisoners_Thought_Prisoner_Beaten.stages.prisoner_beaten.label>prisoner beaten</CM_Beat_Prisoners_Thought_Prisoner_Beaten.stages.prisoner_beaten.label>
+  <!-- EN: A prisoner was given a beating. This is barbaric. -->
+  <CM_Beat_Prisoners_Thought_Prisoner_Beaten.stages.prisoner_beaten.description>A prisoner was given a beating. This is barbaric.</CM_Beat_Prisoners_Thought_Prisoner_Beaten.stages.prisoner_beaten.description>
+  <!-- EN: prisoner beaten -->
+  <CM_Beat_Prisoners_Thought_Prisoner_Beaten_Mild.stages.prisoner_beaten.label>prisoner beaten</CM_Beat_Prisoners_Thought_Prisoner_Beaten_Mild.stages.prisoner_beaten.label>
+  <!-- EN: A prisoner was given a beating. It's disgusting. -->
+  <CM_Beat_Prisoners_Thought_Prisoner_Beaten_Mild.stages.prisoner_beaten.description>A prisoner was given a beating. It's disgusting.</CM_Beat_Prisoners_Thought_Prisoner_Beaten_Mild.stages.prisoner_beaten.description>
+  <!-- EN: prisoner beaten -->
+  <CM_Beat_Prisoners_Thought_Prisoner_Beaten_Spicy.stages.prisoner_beaten.label>prisoner beaten</CM_Beat_Prisoners_Thought_Prisoner_Beaten_Spicy.stages.prisoner_beaten.label>
+  <!-- EN: A prisoner was given a beating. They're going to submit, one way or another. -->
+  <CM_Beat_Prisoners_Thought_Prisoner_Beaten_Spicy.stages.prisoner_beaten.description>A prisoner was given a beating. They're going to submit, one way or another.</CM_Beat_Prisoners_Thought_Prisoner_Beaten_Spicy.stages.prisoner_beaten.description>
+  <!-- EN: beaten -->
+  <CM_Beat_Prisoners_Thought_Self_Beaten.stages.beaten.label>beaten</CM_Beat_Prisoners_Thought_Self_Beaten.stages.beaten.label>
+  <!-- EN: I received a beating. These people really mean business. -->
+  <CM_Beat_Prisoners_Thought_Self_Beaten.stages.beaten.description>I received a beating. These people really mean business.</CM_Beat_Prisoners_Thought_Self_Beaten.stages.beaten.description>
+  <!-- EN: beaten -->
+  <CM_Beat_Prisoners_Thought_Self_Beaten_Kinky.stages.beaten.label>beaten</CM_Beat_Prisoners_Thought_Self_Beaten_Kinky.stages.beaten.label>
+  <!-- EN: I received a beating. I can't wait for the next one!. -->
+  <CM_Beat_Prisoners_Thought_Self_Beaten_Kinky.stages.beaten.description>I received a beating. I can't wait for the next one!.</CM_Beat_Prisoners_Thought_Self_Beaten_Kinky.stages.beaten.description>
+  <!-- EN: beaten -->
+  <CM_Beat_Prisoners_Thought_Self_Beaten_Mild.stages.beaten.label>beaten</CM_Beat_Prisoners_Thought_Self_Beaten_Mild.stages.beaten.label>
+  <!-- EN: I received a beating. I don't know how much of this I can take... -->
+  <CM_Beat_Prisoners_Thought_Self_Beaten_Mild.stages.beaten.description>I received a beating. I don't know how much of this I can take...</CM_Beat_Prisoners_Thought_Self_Beaten_Mild.stages.beaten.description>
+</LanguageData>

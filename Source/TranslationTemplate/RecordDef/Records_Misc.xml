@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: prisoners beaten -->
+  <CM_Beat_Prisoners_Record_Prisoners_Beaten.label>prisoners beaten</CM_Beat_Prisoners_Record_Prisoners_Beaten.label>
+  <!-- EN: The number of beatings I have given to prisoners. -->
+  <CM_Beat_Prisoners_Record_Prisoners_Beaten.description>The number of beatings I have given to prisoners.</CM_Beat_Prisoners_Record_Prisoners_Beaten.description>
+</LanguageData>

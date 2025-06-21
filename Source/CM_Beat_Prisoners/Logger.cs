@@ -6,24 +6,13 @@ namespace CM_Beat_Prisoners;
 
 public static class Logger
 {
-    public static readonly bool MessageEnabled = false;
-    public static readonly bool WarningEnabled = true;
-    public static readonly bool ErrorEnabled = true;
+    private const bool MessageEnabled = false;
+    private const bool WarningEnabled = true;
+    private const bool ErrorEnabled = true;
 
-    public static bool MessageInProgress;
+    private static bool messageInProgress;
 
-    public static StringBuilder messageBuilder = new StringBuilder();
-
-    public static void MessageNoCaller(string message)
-    {
-        if (!MessageEnabled)
-        {
-            return;
-        }
-
-        message = $"{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
-        Log.Message(message);
-    }
+    private static StringBuilder messageBuilder = new();
 
     public static void MessageFormat(object caller, string message, params object[] stuff)
     {
@@ -36,39 +25,6 @@ public static class Logger
         Log.Message(string.Format(message, stuff));
     }
 
-    public static void MessageFormat(string message, params object[] stuff)
-    {
-        if (!MessageEnabled)
-        {
-            return;
-        }
-
-        message = $"{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
-        Log.Message(string.Format(message, stuff));
-    }
-
-    public static void WarningFormat(object caller, string message, params object[] stuff)
-    {
-        if (!WarningEnabled)
-        {
-            return;
-        }
-
-        message = $"{caller.GetType()}.{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
-        Log.Warning(string.Format(message, stuff));
-    }
-
-    public static void ErrorFormat(object caller, string message, params object[] stuff)
-    {
-        if (!ErrorEnabled)
-        {
-            return;
-        }
-
-        message = $"{caller.GetType()}.{new StackTrace().GetFrame(1).GetMethod().Name} - {message}";
-        Log.Error(string.Format(message, stuff));
-    }
-
     // Building and displaying message assumes caller will be checking for MessageEnabled, WarningEnabled or ErrorEnabled
     public static void StartMessage(object caller, string message, params object[] stuff)
     {
@@ -77,7 +33,7 @@ public static class Logger
             return;
         }
 
-        MessageInProgress = true;
+        messageInProgress = true;
         messageBuilder =
             new StringBuilder($"{caller.GetType()}.{new StackTrace().GetFrame(1).GetMethod().Name}: ");
         if (!string.IsNullOrEmpty(message))
@@ -88,7 +44,7 @@ public static class Logger
 
     public static void AddToMessage(string message, params object[] stuff)
     {
-        if (MessageInProgress)
+        if (messageInProgress)
         {
             messageBuilder.AppendLine(string.Format(message, stuff));
         }
@@ -96,34 +52,12 @@ public static class Logger
 
     public static void DisplayMessage()
     {
-        if (!MessageInProgress)
+        if (!messageInProgress)
         {
             return;
         }
 
-        MessageInProgress = false;
+        messageInProgress = false;
         Log.Message(messageBuilder.ToString());
-    }
-
-    public static void DisplayWarning()
-    {
-        if (!MessageInProgress)
-        {
-            return;
-        }
-
-        MessageInProgress = false;
-        Log.Warning(messageBuilder.ToString());
-    }
-
-    public static void DisplayError()
-    {
-        if (!MessageInProgress)
-        {
-            return;
-        }
-
-        MessageInProgress = false;
-        Log.Error(messageBuilder.ToString());
     }
 }

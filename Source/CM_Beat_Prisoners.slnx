@@ -1,0 +1,6 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="CM_Beat_Prisoners/CM_Beat_Prisoners.csproj" />
+</Solution>

@@ -5,11 +5,9 @@ using Verse.AI;
 
 namespace CM_Beat_Prisoners.Patches;
 
-[HarmonyPatch(typeof(JobGiver_ReactToCloseMeleeThreat))]
-[HarmonyPatch("TryGiveJob", MethodType.Normal)]
+[HarmonyPatch(typeof(JobGiver_ReactToCloseMeleeThreat), "TryGiveJob", MethodType.Normal)]
 public static class JobGiver_ReactToCloseMeleeThreat_TryGiveJob
 {
-    [HarmonyPostfix]
     public static void Postfix(Pawn pawn, ref Job __result)
     {
         if (!pawn.IsPrisoner || pawn.mindState.meleeThreat == null || __result == null)
@@ -32,7 +30,7 @@ public static class JobGiver_ReactToCloseMeleeThreat_TryGiveJob
         }
 
         // If we aren't fighting back, cower
-        if (!beating.fightingBack)
+        if (!beating.FightingBack)
         {
             __result = JobMaker.MakeJob(BeatPrisonersDefOf.CM_Beat_Prisoners_Job_Cower,
                 pawn.mindState.meleeThreat);

@@ -7,7 +7,7 @@ namespace CM_Beat_Prisoners;
 
 public class BeatingTracker(World world) : WorldComponent(world)
 {
-    private const int minimumBeatingInterval = 30000;
+    private const int MinimumBeatingInterval = 30000;
 
     private List<BeatingCounter> beatingCounters = [];
 
@@ -23,7 +23,7 @@ public class BeatingTracker(World world) : WorldComponent(world)
 
             beatingsInProgress = beatingsInProgress.Where(beating => beating.HasValidBeatee).ToList();
             beatingCounters = beatingCounters
-                .Where(beating => beating.HasValidBeater && beating.nextBeatingTick > currentTick).ToList();
+                .Where(beating => beating.HasValidBeater && beating.NextBeatingTick > currentTick).ToList();
         }
 
         Scribe_Collections.Look(ref beatingsInProgress, "beatingsInProgress", LookMode.Deep);
@@ -32,14 +32,14 @@ public class BeatingTracker(World world) : WorldComponent(world)
 
     public bool CanGiveBeating(Pawn beater)
     {
-        var counter = beatingCounters.Find(bc => bc.beater == beater);
+        var counter = beatingCounters.Find(bc => bc.Beater == beater);
 
         if (counter == null)
         {
             return true;
         }
 
-        var ticksUntilNextBeating = counter.nextBeatingTick - Find.TickManager.TicksGame;
+        var ticksUntilNextBeating = counter.NextBeatingTick - Find.TickManager.TicksGame;
 
         if (ticksUntilNextBeating > 0)
         {
@@ -51,7 +51,7 @@ public class BeatingTracker(World world) : WorldComponent(world)
 
     public BeatingInProgress GetBeatingInProgress(Pawn beatee)
     {
-        return beatingsInProgress.Find(bting => bting.beatee == beatee);
+        return beatingsInProgress.Find(bting => bting.Beatee == beatee);
     }
 
     public BeatingInProgress GetOrStartBeatingInProgress(Pawn beatee, Pawn beater = null)
@@ -62,7 +62,7 @@ public class BeatingTracker(World world) : WorldComponent(world)
         {
             beating = new BeatingInProgress
             {
-                beatee = beatee
+                Beatee = beatee
             };
             beatingsInProgress.Add(beating);
 
@@ -75,7 +75,7 @@ public class BeatingTracker(World world) : WorldComponent(world)
         }
 
         beating.AddBeater(beater);
-        var counter = beatingCounters.Find(bc => bc.beater == beater);
+        var counter = beatingCounters.Find(bc => bc.Beater == beater);
         if (counter != null)
         {
             return beating;
@@ -83,8 +83,8 @@ public class BeatingTracker(World world) : WorldComponent(world)
 
         beatingCounters.Add(new BeatingCounter
         {
-            beater = beater,
-            nextBeatingTick = Find.TickManager.TicksGame + minimumBeatingInterval
+            Beater = beater,
+            NextBeatingTick = Find.TickManager.TicksGame + MinimumBeatingInterval
         });
 
         return beating;
@@ -105,7 +105,7 @@ public class BeatingTracker(World world) : WorldComponent(world)
         }
 
         beating.RemoveBeater(beater);
-        if (beating.beaters.Count != 0)
+        if (beating.Beaters.Count != 0)
         {
             return;
         }
